@@ -19,12 +19,12 @@ namespace APP
             cmds[0] = tbQuery1.Text;
             cmds[1] = tbQuery2.Text;
 
-            if (rbMySQL.Enabled == true)
+            if (rbMySQL.Checked == true)
             {
                 MySQLConnection MySQLCon = new MySQLConnection();
                 MySQLCon.TransacaoMySQL(cmds);
             }
-            else if (rbMSSQL.Enabled == true)
+            else if (rbMSSQL.Checked == true)
             {
                 MSSQLConnection MSSQLCon = new MSSQLConnection();
                 MSSQLCon.TransacaoMSSQL(cmds);

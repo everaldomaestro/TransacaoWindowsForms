@@ -1,5 +1,5 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace BD.MySQL
 {
@@ -13,31 +13,38 @@ namespace BD.MySQL
         public void TransacaoMySQL(string[] cmds)
         {
             using (MySQLCon = new MySqlConnection())
-            {
-                MySQLCon.ConnectionString = MySQLStringCon;
-                MySQLCon.Open();
-                MySQLTran = MySQLCon.BeginTransaction();
-
+            {               
                 try
                 {
-                    foreach (string cmdTxt in cmds)
-                    {
-                        MySQLCmd = MySQLCon.CreateCommand();
-                        MySQLCmd.CommandText = cmdTxt;
-                        MySQLCmd.Transaction = MySQLTran;
-                        MySQLCmd.ExecuteNonQuery();
-                    }
+                    MySQLCon.ConnectionString = MySQLStringCon;
+                    MySQLCon.Open();
+                    MySQLTran = MySQLCon.BeginTransaction();
 
-                    MySQLTran.Commit();
+                    try
+                    {
+                        foreach (string cmdTxt in cmds)
+                        {
+                            MySQLCmd = MySQLCon.CreateCommand();
+                            MySQLCmd.CommandText = cmdTxt;
+                            MySQLCmd.Transaction = MySQLTran;
+                            MySQLCmd.ExecuteNonQuery();
+                        }
+
+                        MySQLTran.Commit();
+                    }
+                    catch (MySqlException ex1)
+                    {
+                        MySQLTran.Rollback();
+                        MessageBox.Show("Erro " + ex1.Message);
+                    }
+                    finally
+                    {
+                        MySQLCon.Close();
+                    }
                 }
-                catch (MySqlException ex)
+                catch(MySqlException ex2)
                 {
-                    MySQLTran.Rollback();
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    MySQLCon.Close();
+                    MessageBox.Show("Erro " + ex2.Message);
                 }
             }
         }

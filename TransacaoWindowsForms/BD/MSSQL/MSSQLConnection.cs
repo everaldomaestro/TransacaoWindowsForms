@@ -1,5 +1,5 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace BD.MSSQL
 {
@@ -19,29 +19,37 @@ namespace BD.MSSQL
         {
             using (SQLCon = new SqlConnection())
             {
-                SQLCon.ConnectionString = SQLStringCon;
-                SQLCon.Open();
-                SQLTran = SQLCon.BeginTransaction();
 
                 try
                 {
-                    foreach (string cmdTxt in cmds)
+                    SQLCon.ConnectionString = SQLStringCon;
+                    SQLCon.Open();
+                    SQLTran = SQLCon.BeginTransaction();
+
+                    try
                     {
-                        SQLCmd = SQLCon.CreateCommand();
-                        SQLCmd.CommandText = cmdTxt;
-                        SQLCmd.Transaction = SQLTran;
-                        SQLCmd.ExecuteNonQuery();
+                        foreach (string cmdTxt in cmds)
+                        {
+                            SQLCmd = SQLCon.CreateCommand();
+                            SQLCmd.CommandText = cmdTxt;
+                            SQLCmd.Transaction = SQLTran;
+                            SQLCmd.ExecuteNonQuery();
+                        }
+                        SQLTran.Commit();
                     }
-                    SQLTran.Commit();
+                    catch (SqlException ex1)
+                    {
+                        SQLTran.Rollback();
+                        MessageBox.Show("Erro " + ex1.Message);
+                    }
+                    finally
+                    {
+                        SQLCon.Close();
+                    }
                 }
-                catch (SqlException ex)
+                catch (SqlException ex2)
                 {
-                    SQLTran.Rollback();
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    SQLCon.Close();
+                    MessageBox.Show("Erro " + ex2.Message);
                 }
             }
         }

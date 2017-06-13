@@ -51,7 +51,7 @@
             this.tbQuery1.Name = "tbQuery1";
             this.tbQuery1.Size = new System.Drawing.Size(289, 20);
             this.tbQuery1.TabIndex = 3;
-            this.tbQuery1.Text = "INSERT INTO TESTE (NOME, IDADE) VALUES (\'\', );";
+            this.tbQuery1.Text = "INSERT INTO Teste (NOME, IDADE) VALUES (\'EVERALDO\',31);";
             // 
             // rbMSSQL
             // 
@@ -81,7 +81,7 @@
             this.tbQuery2.Name = "tbQuery2";
             this.tbQuery2.Size = new System.Drawing.Size(289, 20);
             this.tbQuery2.TabIndex = 6;
-            this.tbQuery2.Text = "INSERT INTO TESTE (NOME, IDADE) VALUES (\'\', );";
+            this.tbQuery2.Text = "INSERT INTO Teste (NOME, IDADE) VALUES (\'BRUNO\',22);";
             // 
             // Form1
             // 
