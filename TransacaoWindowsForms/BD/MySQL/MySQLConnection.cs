@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System;
 
 namespace BD.MySQL
 {
@@ -35,16 +36,16 @@ namespace BD.MySQL
                     catch (MySqlException ex1)
                     {
                         MySQLTran.Rollback();
-                        MessageBox.Show("Erro " + ex1.Message);
+                        MessageBox.Show(ex1.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     finally
                     {
                         MySQLCon.Close();
                     }
                 }
-                catch(MySqlException ex2)
+                catch(Exception ex2)
                 {
-                    MessageBox.Show("Erro " + ex2.Message);
+                    MessageBox.Show(ex2.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

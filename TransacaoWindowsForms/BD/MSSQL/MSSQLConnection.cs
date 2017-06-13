@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Windows.Forms;
+using System;
 
 namespace BD.MSSQL
 {
@@ -40,16 +41,16 @@ namespace BD.MSSQL
                     catch (SqlException ex1)
                     {
                         SQLTran.Rollback();
-                        MessageBox.Show("Erro " + ex1.Message);
+                        MessageBox.Show(ex1.Message,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     }
                     finally
                     {
                         SQLCon.Close();
                     }
                 }
-                catch (SqlException ex2)
+                catch (Exception ex2)
                 {
-                    MessageBox.Show("Erro " + ex2.Message);
+                    MessageBox.Show(ex2.Message,"Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
