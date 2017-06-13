@@ -6,7 +6,7 @@ namespace BD.MySQL
 {
     public class MySQLConnection
     {
-        private string MySQLStringCon = "server=x;port=x;database=x;uid=x;pwd=x;";
+        private string MySQLStringCon = "server=localhost;port=3306;database=testetransacao;uid=x;pwd=x;";
         private static MySqlConnection MySQLCon;
         private static MySqlTransaction MySQLTran;
         private static MySqlCommand MySQLCmd;
@@ -32,6 +32,7 @@ namespace BD.MySQL
                         }
 
                         MySQLTran.Commit();
+                        MessageBox.Show("Transação realizada com sucesso", "Operação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (MySqlException ex1)
                     {

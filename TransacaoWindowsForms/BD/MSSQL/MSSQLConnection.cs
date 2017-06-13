@@ -11,7 +11,7 @@ namespace BD.MSSQL
         //User Id = USER; 
         //Password=PASS;";
         //String de conexão com o banco
-        private string SQLStringCon = @"Data Source = x,x; Initial Catalog = x; User Id = x; Password = x;";
+        private string SQLStringCon = @"Data Source = localhost,1433; Initial Catalog = testetransacao; User Id = x; Password = x;";
         private static SqlConnection SQLCon;
         private static SqlTransaction SQLTran;
         private static SqlCommand SQLCmd;
@@ -37,6 +37,7 @@ namespace BD.MSSQL
                             SQLCmd.ExecuteNonQuery();
                         }
                         SQLTran.Commit();
+                        MessageBox.Show("Transação realizada com sucesso", "Operação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (SqlException ex1)
                     {

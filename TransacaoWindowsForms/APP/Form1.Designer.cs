@@ -49,7 +49,7 @@
             // 
             this.tbQuery1.Location = new System.Drawing.Point(12, 12);
             this.tbQuery1.Name = "tbQuery1";
-            this.tbQuery1.Size = new System.Drawing.Size(289, 20);
+            this.tbQuery1.Size = new System.Drawing.Size(317, 20);
             this.tbQuery1.TabIndex = 3;
             this.tbQuery1.Text = "INSERT INTO Teste (NOME, IDADE) VALUES (\'EVERALDO\',31);";
             // 
@@ -79,7 +79,7 @@
             // 
             this.tbQuery2.Location = new System.Drawing.Point(12, 38);
             this.tbQuery2.Name = "tbQuery2";
-            this.tbQuery2.Size = new System.Drawing.Size(289, 20);
+            this.tbQuery2.Size = new System.Drawing.Size(317, 20);
             this.tbQuery2.TabIndex = 6;
             this.tbQuery2.Text = "INSERT INTO Teste (NOME, IDADE) VALUES (\'BRUNO\',22);";
             // 
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 158);
+            this.ClientSize = new System.Drawing.Size(341, 163);
             this.Controls.Add(this.tbQuery2);
             this.Controls.Add(this.rbMySQL);
             this.Controls.Add(this.rbMSSQL);
