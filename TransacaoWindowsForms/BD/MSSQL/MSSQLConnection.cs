@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace BD.MSSQL
 {
-    class MSSQLConnection
+    public class MSSQLConnection
     {
         //Data Source = SERVER,PORT; 
         //Initial Catalog = BD;
@@ -15,7 +15,7 @@ namespace BD.MSSQL
         private static SqlTransaction SQLTran;
         private static SqlCommand SQLCmd;
 
-        public void TransacaoSQL(string[] cmds)
+        public void TransacaoMSSQL(string[] cmds)
         {
             using (SQLCon = new SqlConnection())
             {

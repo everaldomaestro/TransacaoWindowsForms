@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace BD.MySQL
 {
-    class MySQLConnection
+    public class MySQLConnection
     {
         private string MySQLStringCon = "server=x;port=x;database=x;uid=x;pwd=x;";
         private static MySqlConnection MySQLCon;

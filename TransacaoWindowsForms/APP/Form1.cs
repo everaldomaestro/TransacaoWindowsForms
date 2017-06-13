@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BD.MSSQL;
+using BD.MySQL;
 
 namespace APP
 {
@@ -14,7 +9,30 @@ namespace APP
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        string[] cmds = new string[2];
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            cmds[0] = tbQuery1.Text;
+            cmds[1] = tbQuery2.Text;
+
+            if (rbMySQL.Enabled == true)
+            {
+                MySQLConnection MySQLCon = new MySQLConnection();
+                MySQLCon.TransacaoMySQL(cmds);
+            }
+            else if (rbMSSQL.Enabled == true)
+            {
+                MSSQLConnection MSSQLCon = new MSSQLConnection();
+                MSSQLCon.TransacaoMSSQL(cmds);
+            }
+            else
+            {
+                MessageBox.Show("ERRO");
+            }
         }
     }
 }
