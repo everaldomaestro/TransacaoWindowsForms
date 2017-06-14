@@ -13,6 +13,7 @@ namespace APP
         }
 
         string[] cmds = new string[2];
+        string[] BD = new string[4];
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -22,11 +23,23 @@ namespace APP
             if (rbMySQL.Checked == true)
             {
                 MySQLConnection MySQLCon = new MySQLConnection();
+
+                MySQLCon.MySQLServer = tbServidor.Text;
+                MySQLCon.MySQLPort = tbPort.Text;
+                MySQLCon.MySQLUser = tbUser.Text;
+                MySQLCon.MySQLPass = tbPass.Text;
+
                 MySQLCon.TransacaoMySQL(cmds);
             }
             else if (rbMSSQL.Checked == true)
             {
                 MSSQLConnection MSSQLCon = new MSSQLConnection();
+
+                MSSQLCon.MSSQLServer = tbServidor.Text;
+                MSSQLCon.MSSQLPort = tbPort.Text;
+                MSSQLCon.MSSQLUser = tbUser.Text;
+                MSSQLCon.MSSQLPass = tbPass.Text;
+
                 MSSQLCon.TransacaoMSSQL(cmds);
             }
             else

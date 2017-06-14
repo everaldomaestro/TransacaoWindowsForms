@@ -11,13 +11,30 @@ namespace BD.MSSQL
         //User Id = USER; 
         //Password=PASS;";
         //String de conexão com o banco
-        private string SQLStringCon = @"Data Source = localhost,1433; Initial Catalog = testetransacao; User Id = x; Password = x;";
+
+        private static string _MSSQLServer;
+        private static string _MSSQLPort;
+        private static string _MSSQLUser;
+        private static string _MSSQLPass;
+
+        public string MSSQLServer { get => _MSSQLServer; set => _MSSQLServer = value; }
+        public string MSSQLPort { get => _MSSQLPort; set => _MSSQLPort = value; }
+        public string MSSQLUser { get => _MSSQLUser; set => _MSSQLUser = value; }
+        public string MSSQLPass { get => _MSSQLPass; set => _MSSQLPass = value; }
+
         private static SqlConnection SQLCon;
         private static SqlTransaction SQLTran;
         private static SqlCommand SQLCmd;
+        private string SQLStringCon;
 
         public void TransacaoMSSQL(string[] cmds)
         {
+            SQLStringCon =
+            @"Data Source ="+_MSSQLServer+","+_MSSQLPort+";" +
+            "Initial Catalog = testetransacao;" +
+            "User Id ="+_MSSQLUser+";" +
+            "Password ="+_MSSQLPass+";";
+
             using (SQLCon = new SqlConnection())
             {
 

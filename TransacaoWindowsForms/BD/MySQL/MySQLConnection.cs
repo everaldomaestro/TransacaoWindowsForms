@@ -6,13 +6,31 @@ namespace BD.MySQL
 {
     public class MySQLConnection
     {
-        private string MySQLStringCon = "server=localhost;port=3306;database=testetransacao;uid=x;pwd=x;";
+        private static string _MySQLServer;
+        private static string _MySQLPort;
+        private static string _MySQLUser;
+        private static string _MySQLPass;
+
+        public string MySQLServer { get => _MySQLServer; set => _MySQLServer = value; }
+        public string MySQLPort { get => _MySQLPort; set => _MySQLPort = value; }
+        public string MySQLUser { get => _MySQLUser; set => _MySQLUser = value; }
+        public string MySQLPass { get => _MySQLPass; set => _MySQLPass = value; }        
+
         private static MySqlConnection MySQLCon;
         private static MySqlTransaction MySQLTran;
         private static MySqlCommand MySQLCmd;
+        private string MySQLStringCon;            
+
 
         public void TransacaoMySQL(string[] cmds)
         {
+            MySQLStringCon = 
+                "server=" + _MySQLServer + ";" +
+                "port=" + _MySQLPort + ";" +
+                "database=testetransacao;" +
+                "uid=" + _MySQLUser + ";" +
+                "pwd=" + _MySQLPass + ";";
+
             using (MySQLCon = new MySqlConnection())
             {               
                 try
