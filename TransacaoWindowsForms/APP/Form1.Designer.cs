@@ -44,6 +44,7 @@
             this.tbPass = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
+            this.rbPgSQL = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +99,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbPgSQL);
             this.panel1.Controls.Add(this.rbMSSQL);
             this.panel1.Controls.Add(this.rbMySQL);
             this.panel1.Location = new System.Drawing.Point(12, 64);
@@ -194,6 +196,17 @@
             this.btnTest.Text = "Teste";
             this.btnTest.UseVisualStyleBackColor = true;
             // 
+            // rbPgSQL
+            // 
+            this.rbPgSQL.AutoSize = true;
+            this.rbPgSQL.Location = new System.Drawing.Point(144, 3);
+            this.rbPgSQL.Name = "rbPgSQL";
+            this.rbPgSQL.Size = new System.Drawing.Size(59, 17);
+            this.rbPgSQL.TabIndex = 6;
+            this.rbPgSQL.TabStop = true;
+            this.rbPgSQL.Text = "PgSQL";
+            this.rbPgSQL.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +247,7 @@
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.RadioButton rbPgSQL;
     }
 }
 

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BD.PgSQL
 {
-    class PgSQLConnection
+    public class PgSQLConnection
     {
         private static string _PgSQLServer;
         private static string _PgSQLPort;
@@ -26,7 +26,7 @@ namespace BD.PgSQL
         private string PgSQLStringCon;
 
 
-        public void TransacaoMySQL(string[] cmds)
+        public void TransacaoPgSQL(string[] cmds)
         {
             PgSQLStringCon =
                 "Server="+_PgSQLServer+";" +

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using BD.MSSQL;
 using BD.MySQL;
+using BD.PgSQL;
 
 namespace APP
 {
@@ -41,6 +42,17 @@ namespace APP
                 MSSQLCon.MSSQLPass = tbPass.Text;
 
                 MSSQLCon.TransacaoMSSQL(cmds);
+            }
+            else if(rbPgSQL.Checked == true)
+            {
+                PgSQLConnection PgSQLCon = new PgSQLConnection();
+
+                PgSQLCon.PgSQLServer = tbServidor.Text;
+                PgSQLCon.PgSQLPort = tbPort.Text;
+                PgSQLCon.PgSQLUser = tbUser.Text;
+                PgSQLCon.PgSQLPass = tbPass.Text;
+
+                PgSQLCon.TransacaoPgSQL(cmds);
             }
             else
             {
