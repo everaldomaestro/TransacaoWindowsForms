@@ -57,15 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\SQLCommand.cs" />
     <Compile Include="Firebird\FirebirdConnection.cs" />
     <Compile Include="MSSQL\MSSQLConnection.cs" />
     <Compile Include="MySQL\MySQLConnection.cs" />
     <Compile Include="PgSQL\PgSQLConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Connection\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
