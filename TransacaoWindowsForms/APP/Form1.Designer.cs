@@ -34,6 +34,7 @@
             this.rbMySQL = new System.Windows.Forms.RadioButton();
             this.tbQuery2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbPgSQL = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.tbPass = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
-            this.rbPgSQL = new System.Windows.Forms.RadioButton();
+            this.rbFirebird = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbFirebird);
             this.panel1.Controls.Add(this.rbPgSQL);
             this.panel1.Controls.Add(this.rbMSSQL);
             this.panel1.Controls.Add(this.rbMySQL);
@@ -106,6 +108,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(317, 24);
             this.panel1.TabIndex = 7;
+            // 
+            // rbPgSQL
+            // 
+            this.rbPgSQL.AutoSize = true;
+            this.rbPgSQL.Location = new System.Drawing.Point(144, 3);
+            this.rbPgSQL.Name = "rbPgSQL";
+            this.rbPgSQL.Size = new System.Drawing.Size(59, 17);
+            this.rbPgSQL.TabIndex = 6;
+            this.rbPgSQL.TabStop = true;
+            this.rbPgSQL.Text = "PgSQL";
+            this.rbPgSQL.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -196,16 +209,16 @@
             this.btnTest.Text = "Teste";
             this.btnTest.UseVisualStyleBackColor = true;
             // 
-            // rbPgSQL
+            // rbFirebird
             // 
-            this.rbPgSQL.AutoSize = true;
-            this.rbPgSQL.Location = new System.Drawing.Point(144, 3);
-            this.rbPgSQL.Name = "rbPgSQL";
-            this.rbPgSQL.Size = new System.Drawing.Size(59, 17);
-            this.rbPgSQL.TabIndex = 6;
-            this.rbPgSQL.TabStop = true;
-            this.rbPgSQL.Text = "PgSQL";
-            this.rbPgSQL.UseVisualStyleBackColor = true;
+            this.rbFirebird.AutoSize = true;
+            this.rbFirebird.Location = new System.Drawing.Point(209, 3);
+            this.rbFirebird.Name = "rbFirebird";
+            this.rbFirebird.Size = new System.Drawing.Size(59, 17);
+            this.rbFirebird.TabIndex = 7;
+            this.rbFirebird.TabStop = true;
+            this.rbFirebird.Text = "Firebird";
+            this.rbFirebird.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -248,6 +261,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.RadioButton rbPgSQL;
+        private System.Windows.Forms.RadioButton rbFirebird;
     }
 }
 

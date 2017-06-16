@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using BD.MSSQL;
 using BD.MySQL;
 using BD.PgSQL;
+using BD.Firebird;
 
 namespace APP
 {
@@ -53,6 +54,17 @@ namespace APP
                 PgSQLCon.PgSQLPass = tbPass.Text;
 
                 PgSQLCon.TransacaoPgSQL(cmds);
+            }
+            else if (rbFirebird.Checked == true)
+            {
+                FirebirdConnection FirebirdCon = new FirebirdConnection();
+
+                FirebirdCon.FirebirdServer = tbServidor.Text;
+                FirebirdCon.FirebirdPort = tbPort.Text;
+                FirebirdCon.FirebirdUser = tbUser.Text;
+                FirebirdCon.FirebirdPass = tbPass.Text;
+
+                FirebirdCon.TransacaoFirebird(cmds);
             }
             else
             {
